@@ -2,7 +2,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
 // ========================================
-// Reset & Base Styles
+// Theme CSS Custom Properties
+// ========================================
+
+// Dark Theme (default)
+:root,
+[data-theme="dark"] {
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #111111;
+  --color-bg-tertiary: #1a1a1a;
+  --color-bg-card: #151515;
+  --color-bg-card-hover: #1e1e1e;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #777777;
+
+  --color-border: #2a2a2a;
+  --color-border-light: #333333;
+
+  --color-overlay-dark: rgba(0, 0, 0, 0.6);
+  --color-overlay-medium: rgba(0, 0, 0, 0.4);
+  --color-overlay-light: rgba(0, 0, 0, 0.2);
+
+  --color-glass-bg: rgba(17, 17, 17, 0.8);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+  // Theme transition
+  color-scheme: dark;
+}
+
+// Light Theme (warm cream palette)
+[data-theme="light"] {
+  --color-bg-primary: #faf8f5;
+  --color-bg-secondary: #f2efe9;
+  --color-bg-tertiary: #e8e3dc;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #f7f4ef;
+
+  --color-text-primary: #1a1410;
+  --color-text-secondary: #5a4e42;
+  --color-text-muted: #8a7e72;
+
+  --color-border: #e0d8ce;
+  --color-border-light: #d4cbbf;
+
+  --color-overlay-dark: rgba(0, 0, 0, 0.4);
+  --color-overlay-medium: rgba(0, 0, 0, 0.25);
+  --color-overlay-light: rgba(0, 0, 0, 0.1);
+
+  --color-glass-bg: rgba(255, 255, 255, 0.85);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  color-scheme: light;
+}
+
+// ========================================
+// Theme Transition (smooth color changes)
 // ========================================
 
 *,
@@ -12,6 +74,16 @@
   margin: 0;
   padding: 0;
 }
+
+// Smooth transition when switching themes
+html[data-theme] body,
+html[data-theme] body * {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+// ========================================
+// Reset & Base Styles
+// ========================================
 
 html {
   scroll-behavior: smooth;
@@ -106,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
   
   &--primary {
     background: linear-gradient(135deg, $color-accent-primary, $color-accent-secondary);
-    color: $color-bg-primary;
+    color: $color-accent-contrast;
     
     &:hover {
       transform: translateY(-2px);
@@ -121,7 +193,7 @@ h1, h2, h3, h4, h5, h6 {
     
     &:hover {
       background: $color-accent-primary;
-      color: $color-bg-primary;
+      color: $color-accent-contrast;
       transform: translateY(-2px);
     }
   }
@@ -163,7 +235,7 @@ h1, h2, h3, h4, h5, h6 {
 
 ::selection {
   background: $color-accent-primary;
-  color: $color-bg-primary;
+  color: #ffffff;
 }
 
 // ========================================

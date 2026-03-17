@@ -4,11 +4,13 @@ import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiInstagram, FiYoutube } from 'react-icons/fi';
 import { siteConfig } from '@/data/siteData';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import styles from './Navbar.module.scss';
 
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Map', href: '/map' },
   { label: 'Planned Trips', href: '/planned-trips' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -61,18 +63,22 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
+          <ThemeToggle />
         </div>
 
-        {/* Hamburger */}
-        <button
-          className={`${styles.hamburger} ${mobileOpen ? styles.open : ''}`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        {/* Mobile: Theme Toggle + Hamburger */}
+        <div className={styles.mobileActions}>
+          <ThemeToggle className={styles.mobileThemeToggle} />
+          <button
+            className={`${styles.hamburger} ${mobileOpen ? styles.open : ''}`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

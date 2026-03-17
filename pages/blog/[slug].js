@@ -6,6 +6,7 @@ import { FiMapPin, FiCalendar, FiClock, FiArrowLeft } from 'react-icons/fi';
 import SEO from '@/components/SEO/SEO';
 import AnimatedSection from '@/components/AnimatedSection/AnimatedSection';
 import Lightbox from '@/components/Lightbox/Lightbox';
+import ReadingProgress from '@/components/ReadingProgress/ReadingProgress';
 import { blogPosts } from '@/data/siteData';
 import styles from '@/styles/BlogDetail.module.scss';
 
@@ -34,6 +35,8 @@ export default function BlogDetail({ post }) {
         image={post.coverImage}
         type="article"
       />
+
+      <ReadingProgress />
 
       <div className={styles.page}>
         {/* Hero Banner */}

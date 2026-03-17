@@ -1,29 +1,44 @@
 // ========================================
 // IndianTravellerOfficial - Design Tokens
 // ========================================
+// Theme-reactive colors use CSS custom properties (var())
+// Accent colors remain SCSS hex values (shared across themes)
 
-// Colors
-$color-bg-primary: #0a0a0a;
-$color-bg-secondary: #111111;
-$color-bg-tertiary: #1a1a1a;
-$color-bg-card: #151515;
-$color-bg-card-hover: #1e1e1e;
+// ========================================
+// Theme-Reactive Colors (via CSS custom properties)
+// Actual values are defined in globals.scss under :root and [data-theme="light"]
+// ========================================
+
+$color-bg-primary: var(--color-bg-primary);
+$color-bg-secondary: var(--color-bg-secondary);
+$color-bg-tertiary: var(--color-bg-tertiary);
+$color-bg-card: var(--color-bg-card);
+$color-bg-card-hover: var(--color-bg-card-hover);
+
+$color-text-primary: var(--color-text-primary);
+$color-text-secondary: var(--color-text-secondary);
+$color-text-muted: var(--color-text-muted);
+
+$color-border: var(--color-border);
+$color-border-light: var(--color-border-light);
+
+$color-overlay-dark: var(--color-overlay-dark);
+$color-overlay-medium: var(--color-overlay-medium);
+$color-overlay-light: var(--color-overlay-light);
+
+// ========================================
+// Accent Colors (static - same in both themes)
+// ========================================
 
 $color-accent-primary: #c8956c;
 $color-accent-secondary: #d4a574;
 $color-accent-light: #e8b88a;
 $color-accent-glow: rgba(200, 149, 108, 0.3);
 
-$color-text-primary: #ffffff;
-$color-text-secondary: #b0b0b0;
-$color-text-muted: #777777;
-
-$color-border: #2a2a2a;
-$color-border-light: #333333;
-
-$color-overlay-dark: rgba(0, 0, 0, 0.6);
-$color-overlay-medium: rgba(0, 0, 0, 0.4);
-$color-overlay-light: rgba(0, 0, 0, 0.2);
+// SCSS-only colors (not theme-dependent, used in rgba/functions)
+$color-white: #ffffff;
+$color-black: #000000;
+$color-accent-contrast: #0a0a0a; // Dark text for use on accent-colored backgrounds
 
 // Typography
 $font-heading: 'Playfair Display', Georgia, serif;
@@ -74,11 +89,12 @@ $border-radius-md: 8px;
 $border-radius-lg: 12px;
 $border-radius-xl: 16px;
 $border-radius-full: 50%;
+$border-radius-pill: 50px;
 
-// Shadows
-$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+// Shadows (theme-reactive via CSS custom properties)
+$shadow-sm: var(--shadow-sm);
+$shadow-md: var(--shadow-md);
+$shadow-lg: var(--shadow-lg);
 $shadow-glow: 0 0 20px $color-accent-glow;
 
 // Transitions
@@ -134,7 +150,7 @@ $z-tooltip: 400;
 }
 
 @mixin glass-effect {
-  background: rgba(17, 17, 17, 0.8);
+  background: var(--color-glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid $color-border;

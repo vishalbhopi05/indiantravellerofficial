@@ -235,11 +235,12 @@
   font-family: $font-heading;
   font-size: $fs-xl;
   margin-bottom: 2px;
+  color: #ffffff; // Always white on image overlay
 }
 
 .destLocation {
   font-size: $fs-sm;
-  color: $color-text-secondary;
+  color: rgba(255, 255, 255, 0.7); // Always white on image overlay
   display: flex;
   align-items: center;
   gap: 4px;

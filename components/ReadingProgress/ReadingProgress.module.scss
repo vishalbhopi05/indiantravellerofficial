@@ -1,0 +1,20 @@
+@use '../../styles/variables' as *;
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  z-index: $z-fixed + 1; // Above the navbar
+  background: transparent;
+  pointer-events: none;
+}
+
+.bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, $color-accent-primary, $color-accent-light);
+  transform-origin: left;
+  box-shadow: 0 0 8px $color-accent-glow;
+}

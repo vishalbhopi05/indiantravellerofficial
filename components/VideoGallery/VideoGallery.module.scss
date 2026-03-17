@@ -57,7 +57,7 @@
   @include flex-center;
   background: rgba($color-accent-primary, 0.9);
   border-radius: $border-radius-full;
-  color: $color-bg-primary;
+  color: $color-accent-contrast;
   font-size: $fs-xl;
   transition: all $transition-base;
   z-index: 2;
@@ -76,7 +76,7 @@
   padding: 4px 10px;
   border-radius: $border-radius-sm;
   font-size: $fs-xs;
-  color: $color-text-primary;
+  color: #ffffff; // Always white on image overlay
   z-index: 2;
 }
 
@@ -133,7 +133,7 @@
   @include flex-center;
   background: rgba(255, 255, 255, 0.1);
   border-radius: $border-radius-full;
-  color: $color-text-primary;
+  color: #ffffff; // Always white on dark modal overlay
   font-size: $fs-xl;
   cursor: pointer;
   transition: all $transition-base;

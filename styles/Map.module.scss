@@ -1,0 +1,220 @@
+@use 'variables' as *;
+
+.mapPage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-bg-primary);
+}
+
+// Header overlay
+.headerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: calc($nav-height + $spacing-sm) $spacing-md $spacing-sm;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-primary) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
+
+  @include responsive($bp-lg) {
+    padding: calc($nav-height + $spacing-md) $spacing-xl $spacing-md;
+  }
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-sm;
+}
+
+.title {
+  font-family: $font-heading;
+  font-size: clamp($fs-xl, 3vw, $fs-3xl);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  span {
+    @include gradient-text;
+  }
+
+  svg {
+    color: $color-accent-primary;
+  }
+}
+
+// Filter bar
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: $fs-sm;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: $border-radius-pill;
+  cursor: pointer;
+  transition: all $transition-base;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+    border-color: var(--color-border-light);
+  }
+
+  &.active {
+    background: $color-accent-primary;
+    color: $color-accent-contrast;
+    border-color: $color-accent-primary;
+    font-weight: 600;
+  }
+}
+
+.toggleBtn {
+  &.active {
+    background: rgba($color-accent-primary, 0.15);
+    color: $color-accent-primary;
+    border-color: $color-accent-primary;
+  }
+}
+
+.filterDivider {
+  width: 1px;
+  height: 24px;
+  background: var(--color-border);
+  margin: 0 $spacing-xs;
+
+  @media (max-width: #{$bp-sm}) {
+    display: none;
+  }
+}
+
+// Counter overlay
+.counterOverlay {
+  position: absolute;
+  bottom: $spacing-lg;
+  left: $spacing-md;
+  z-index: 10;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: $border-radius-lg;
+  padding: $spacing-md;
+  min-width: 200px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+
+  @include responsive($bp-lg) {
+    bottom: $spacing-xl;
+    left: $spacing-xl;
+    padding: $spacing-lg;
+    min-width: 240px;
+  }
+
+  @media (max-width: #{$bp-sm}) {
+    bottom: $spacing-sm;
+    left: $spacing-sm;
+    right: $spacing-sm;
+    min-width: auto;
+  }
+}
+
+.counterMain {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.counterNumber {
+  font-family: $font-heading;
+  font-size: $fs-4xl;
+  font-weight: 700;
+  @include gradient-text;
+  line-height: 1;
+}
+
+.counterLabel {
+  font-size: $fs-sm;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+// Category legend
+.counterCategories {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.catItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $fs-xs;
+}
+
+.catDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &[data-category='Mountains'] {
+    background: #c8956c;
+  }
+  &[data-category='Beaches'] {
+    background: #4ecdc4;
+  }
+  &[data-category='Cities'] {
+    background: #ff6b6b;
+  }
+  &[data-category='Forests'] {
+    background: #51cf66;
+  }
+  &[data-category='Heritage'] {
+    background: #ffd43b;
+  }
+}
+
+.catName {
+  color: var(--color-text-secondary);
+  flex: 1;
+}
+
+.catCount {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+// Map container (full screen)
+.mapContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}

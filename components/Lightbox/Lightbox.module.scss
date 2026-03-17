@@ -37,7 +37,7 @@
   @include flex-center;
   background: rgba(255, 255, 255, 0.1);
   border-radius: $border-radius-full;
-  color: $color-text-primary;
+  color: #ffffff; // Always white on dark lightbox overlay
   font-size: $fs-xl;
   cursor: pointer;
   transition: all $transition-base;
@@ -58,7 +58,7 @@
   @include flex-center;
   background: rgba(255, 255, 255, 0.1);
   border-radius: $border-radius-full;
-  color: $color-text-primary;
+  color: #ffffff; // Always white on dark lightbox overlay
   font-size: $fs-xl;
   cursor: pointer;
   transition: all $transition-base;
@@ -98,6 +98,6 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: $fs-sm;
-  color: $color-text-secondary;
+  color: rgba(255, 255, 255, 0.7); // Always white on dark lightbox overlay
   letter-spacing: 2px;
 }

@@ -31,7 +31,7 @@
   &.active {
     background: $color-accent-primary;
     border-color: $color-accent-primary;
-    color: $color-bg-primary;
+    color: $color-accent-contrast;
   }
 }
 
@@ -118,7 +118,7 @@
 
 .itemAlt {
   font-size: $fs-sm;
-  color: $color-text-primary;
+  color: #ffffff; // Always white on image overlay
   text-align: center;
 }
 
@@ -128,7 +128,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: $fs-2xl;
-  color: $color-text-primary;
+  color: #ffffff; // Always white on image overlay
   opacity: 0;
   transition: opacity $transition-base;
 

@@ -9,10 +9,24 @@
   padding: $spacing-md $spacing-lg;
   transition: all $transition-smooth;
 
+  // Non-scrolled: transparent over hero images — force light text + subtle shadow for readability
+  .navLink,
+  .logo,
+  .hamburger span {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  }
+
   &.scrolled {
     @include glass-effect;
     padding: $spacing-sm $spacing-lg;
     box-shadow: $shadow-md;
+
+    // Scrolled: on glass bg — remove text shadow, use theme colors
+    .navLink,
+    .logo,
+    .hamburger span {
+      text-shadow: none;
+    }
   }
 }
 
@@ -68,6 +82,21 @@
   }
 }
 
+// Mobile actions container (theme toggle + hamburger)
+.mobileActions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  @include responsive($bp-lg) {
+    display: none;
+  }
+}
+
+.mobileThemeToggle {
+  // Inherit ThemeToggle styles, just ensure proper sizing for mobile
+}
+
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -75,10 +104,6 @@
   padding: 8px;
   cursor: pointer;
   z-index: $z-overlay + 1;
-
-  @include responsive($bp-lg) {
-    display: none;
-  }
 
   span {
     display: block;

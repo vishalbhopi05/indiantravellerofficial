@@ -78,6 +78,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80',
     category: 'Mountains',
     slug: 'ladakh-the-land-of-passes',
+    coords: [34.1526, 77.5771],
   },
   {
     id: 2,
@@ -87,6 +88,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80',
     category: 'Beaches',
     slug: 'bali-island-of-gods',
+    coords: [-8.3405, 115.0920],
   },
   {
     id: 3,
@@ -96,6 +98,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80',
     category: 'Cities',
     slug: 'tokyo-neon-dreams',
+    coords: [35.6762, 139.6503],
   },
   {
     id: 4,
@@ -105,6 +108,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80',
     category: 'Forests',
     slug: 'munnar-tea-garden-trails',
+    coords: [10.0889, 77.0595],
   },
   {
     id: 5,
@@ -114,6 +118,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80',
     category: 'Mountains',
     slug: 'swiss-alps-adventure',
+    coords: [46.8182, 8.2275],
   },
   {
     id: 6,
@@ -123,6 +128,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&q=80',
     category: 'Beaches',
     slug: 'goa-golden-shores',
+    coords: [15.2993, 74.1240],
   },
   {
     id: 7,
@@ -132,6 +138,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&q=80',
     category: 'Beaches',
     slug: 'thailand-land-of-smiles',
+    coords: [13.7563, 100.5018],
   },
   {
     id: 8,
@@ -141,6 +148,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80',
     category: 'Mountains',
     slug: 'spiti-valley-the-middle-land',
+    coords: [32.2460, 78.0349],
   },
   {
     id: 9,
@@ -150,6 +158,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80',
     category: 'Beaches',
     slug: 'phuket-pearl-of-andaman',
+    coords: [7.8804, 98.3923],
   },
   {
     id: 10,
@@ -159,6 +168,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&q=80',
     category: 'Forests',
     slug: 'coorg-scotland-of-india',
+    coords: [12.3375, 75.8069],
   },
   {
     id: 11,
@@ -168,6 +178,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&q=80',
     category: 'Heritage',
     slug: 'nashik-wine-capital-of-india',
+    coords: [19.9975, 73.7898],
   },
   {
     id: 12,
@@ -177,6 +188,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=800&q=80',
     category: 'Mountains',
     slug: 'mahabaleshwar-jewel-of-sahyadri',
+    coords: [17.9237, 73.6588],
   },
   {
     id: 13,
@@ -186,6 +198,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
     category: 'Beaches',
     slug: 'velas-turtle-beach-paradise',
+    coords: [17.9592, 73.0477],
   },
   {
     id: 14,
@@ -195,6 +208,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80',
     category: 'Beaches',
     slug: 'alibaug-coastal-getaway',
+    coords: [18.6414, 72.8722],
   },
   {
     id: 15,
@@ -204,6 +218,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1566837945700-30057527ade0?w=800&q=80',
     category: 'Mountains',
     slug: 'kashmir-paradise-on-earth',
+    coords: [34.0837, 74.7973],
   },
   {
     id: 16,
@@ -213,6 +228,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80',
     category: 'Mountains',
     slug: 'bir-billing-paragliding-capital',
+    coords: [31.8833, 76.7221],
   },
   {
     id: 17,
@@ -222,6 +238,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1468413253725-0d5181091126?w=800&q=80',
     category: 'Beaches',
     slug: 'daman-serene-coastal-charm',
+    coords: [20.3974, 72.8328],
   },
   {
     id: 18,
@@ -231,6 +248,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1567337710282-00832b415979?w=800&q=80',
     category: 'Cities',
     slug: 'indore-food-capital-of-india',
+    coords: [22.7196, 75.8577],
   },
   {
     id: 19,
@@ -240,6 +258,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80',
     category: 'Mountains',
     slug: 'lonavla-monsoon-paradise',
+    coords: [18.7546, 73.4062],
   },
   {
     id: 20,
@@ -249,6 +268,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80',
     category: 'Beaches',
     slug: 'gokarna-hidden-beach-town',
+    coords: [14.5479, 74.3188],
   },
   {
     id: 21,
@@ -258,6 +278,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&q=80',
     category: 'Heritage',
     slug: 'rajasthan-land-of-kings',
+    coords: [26.9124, 75.7873],
   },
   {
     id: 22,
@@ -267,6 +288,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80',
     category: 'Mountains',
     slug: 'nainital-lake-district-of-india',
+    coords: [29.3803, 79.4636],
   },
   {
     id: 23,
@@ -276,6 +298,7 @@ export const destinations = [
       'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80',
     category: 'Heritage',
     slug: 'vrindavan-city-of-temples',
+    coords: [27.5946, 77.6720],
   },
 ];
 

@@ -39,7 +39,7 @@
   display: inline-block;
   padding: 6px 16px;
   background: $color-accent-primary;
-  color: $color-bg-primary;
+  color: $color-accent-contrast;
   font-size: $fs-xs;
   font-weight: 600;
   text-transform: uppercase;
@@ -53,6 +53,7 @@
   font-size: clamp($fs-2xl, 5vw, $fs-4xl);
   line-height: 1.15;
   margin-bottom: $spacing-md;
+  color: #ffffff; // Always white on hero banner overlay
 }
 
 .blogMeta {
@@ -61,7 +62,7 @@
   align-items: center;
   gap: $spacing-sm;
   font-size: $fs-sm;
-  color: $color-text-secondary;
+  color: rgba(255, 255, 255, 0.7); // Always white on hero banner overlay
 
   svg {
     vertical-align: middle;
@@ -78,7 +79,7 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: $color-text-muted;
+  background: rgba(255, 255, 255, 0.5); // Always visible on hero banner overlay
 }
 
 // Article Content

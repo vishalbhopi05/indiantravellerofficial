@@ -49,7 +49,7 @@
 
   background: linear-gradient(
     180deg,
-    $color-text-primary 0%,
+    #ffffff 0%,
     rgba(255, 255, 255, 0.8) 100%
   );
   -webkit-background-clip: text;
@@ -60,7 +60,7 @@
 .slideSubtitle {
   font-family: $font-accent;
   font-size: clamp($fs-md, 2.5vw, $fs-xl);
-  color: $color-text-secondary;
+  color: rgba(255, 255, 255, 0.7); // Always white on image overlay
   margin-bottom: $spacing-xl;
   font-style: italic;
   max-width: 600px;
@@ -73,7 +73,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   background: linear-gradient(135deg, $color-accent-primary, $color-accent-secondary);
-  color: $color-bg-primary;
+  color: $color-accent-contrast;
   border-radius: $border-radius-md;
   transition: all $transition-base;
   cursor: pointer;
@@ -95,7 +95,7 @@
   flex-direction: column;
   align-items: center;
   gap: $spacing-xs;
-  color: $color-text-secondary;
+  color: rgba(255, 255, 255, 0.7); // Always white on image overlay
   font-size: $fs-xs;
   letter-spacing: 2px;
   text-transform: uppercase;

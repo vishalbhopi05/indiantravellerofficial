@@ -42,7 +42,7 @@
 
   &.planning {
     background: rgba($color-accent-primary, 0.9);
-    color: $color-bg-primary;
+    color: $color-accent-contrast;
   }
 
   &.wishlist {
@@ -113,6 +113,6 @@
 
   &:hover {
     background: $color-accent-primary;
-    color: $color-bg-primary;
+    color: $color-accent-contrast;
   }
 }
