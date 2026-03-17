@@ -1,0 +1,138 @@
+@use '../../styles/variables' as *;
+
+.section {
+  @include section-padding;
+  background: $color-bg-primary;
+}
+
+.header {
+  @include container;
+  margin-bottom: $spacing-2xl;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  margin-top: $spacing-md;
+}
+
+.filterBtn {
+  padding: 8px 20px;
+  font-size: $fs-sm;
+  color: $color-text-secondary;
+  border: 1px solid $color-border;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all $transition-base;
+  background: transparent;
+
+  &:hover,
+  &.active {
+    background: $color-accent-primary;
+    border-color: $color-accent-primary;
+    color: $color-bg-primary;
+  }
+}
+
+.masonry {
+  @include container;
+  column-count: 2;
+  column-gap: $spacing-md;
+
+  @include responsive($bp-md) {
+    column-count: 3;
+  }
+
+  @include responsive($bp-xl) {
+    column-count: 4;
+  }
+}
+
+.item {
+  break-inside: avoid;
+  margin-bottom: $spacing-md;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+
+  &:nth-child(odd) .imageWrap {
+    aspect-ratio: 3 / 4;
+  }
+
+  &:nth-child(even) .imageWrap {
+    aspect-ratio: 4 / 3;
+  }
+
+  &:nth-child(3n) .imageWrap {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: $border-radius-md;
+
+  img {
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  &:hover img {
+    transform: scale(1.08);
+  }
+}
+
+.itemOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  opacity: 0;
+  transition: opacity $transition-base;
+  @include flex-center;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
+  z-index: 2;
+
+  .item:hover & {
+    opacity: 1;
+  }
+}
+
+.itemCategory {
+  font-size: $fs-xs;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $color-accent-primary;
+  margin-bottom: 4px;
+}
+
+.itemAlt {
+  font-size: $fs-sm;
+  color: $color-text-primary;
+  text-align: center;
+}
+
+.viewIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: $fs-2xl;
+  color: $color-text-primary;
+  opacity: 0;
+  transition: opacity $transition-base;
+
+  .item:hover & {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,375 @@
+@use './variables' as *;
+
+// ========================================
+// About Section
+// ========================================
+.about {
+  @include section-padding;
+  background: $color-bg-secondary;
+}
+
+.aboutInner {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-2xl;
+  align-items: center;
+
+  @include responsive($bp-lg) {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+.aboutImageWrap {
+  position: relative;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  max-width: 450px;
+  margin: 0 auto;
+
+  @include responsive($bp-lg) {
+    margin: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid $color-accent-primary;
+    border-radius: $border-radius-lg;
+    transform: translate(12px, 12px);
+    z-index: -1;
+    opacity: 0.4;
+  }
+
+  img {
+    object-fit: cover;
+    border-radius: $border-radius-lg;
+  }
+}
+
+.aboutContent {
+  h2 {
+    font-size: $fs-section-title;
+    margin-bottom: $spacing-md;
+
+    span {
+      @include gradient-text;
+    }
+  }
+
+  p {
+    color: $color-text-secondary;
+    line-height: 1.8;
+    font-size: $fs-md;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.aboutStats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+
+  @include responsive($bp-sm) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statItem {
+  text-align: center;
+  padding: $spacing-md;
+  background: $color-bg-tertiary;
+  border-radius: $border-radius-md;
+  border: 1px solid $color-border;
+
+  h3 {
+    font-size: $fs-2xl;
+    @include gradient-text;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: $fs-xs;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+  }
+}
+
+// ========================================
+// Destinations Section
+// ========================================
+.destinations {
+  @include section-padding;
+  background: $color-bg-primary;
+}
+
+.destinationsInner {
+  @include container;
+}
+
+// Destination Filter Tabs
+.destTabs {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xl;
+  flex-wrap: wrap;
+}
+
+.destTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: 50px;
+  border: 1px solid $color-border;
+  background: transparent;
+  color: $color-text-secondary;
+  font-family: $font-body;
+  font-size: $fs-sm;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $color-accent-primary;
+    color: $color-accent-primary;
+    background: rgba($color-accent-primary, 0.06);
+  }
+}
+
+.destTabActive {
+  background: $color-accent-primary;
+  border-color: $color-accent-primary;
+  color: #fff;
+
+  &:hover {
+    background: $color-accent-secondary;
+    border-color: $color-accent-secondary;
+    color: #fff;
+  }
+}
+
+.destinationsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include responsive($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive($bp-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.destCard {
+  position: relative;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+
+  @include responsive($bp-sm) {
+    &:first-child {
+      grid-column: span 2;
+      aspect-ratio: 2 / 1;
+    }
+  }
+}
+
+.destImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  img {
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .destCard:hover & img {
+    transform: scale(1.08);
+  }
+}
+
+.destOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 30%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: $spacing-lg;
+  transition: background $transition-base;
+
+  .destCard:hover & {
+    background: linear-gradient(
+      180deg,
+      transparent 20%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+  }
+}
+
+.destCategory {
+  font-size: $fs-xs;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $color-accent-primary;
+  margin-bottom: 4px;
+}
+
+.destName {
+  font-family: $font-heading;
+  font-size: $fs-xl;
+  margin-bottom: 2px;
+}
+
+.destLocation {
+  font-size: $fs-sm;
+  color: $color-text-secondary;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+// ========================================
+// Upcoming Trips Section (Home)
+// ========================================
+.upcomingTrips {
+  @include section-padding;
+  background: $color-bg-primary;
+}
+
+.upcomingInner {
+  @include container;
+}
+
+.upcomingGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include responsive($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive($bp-xl) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// ========================================
+// Instagram Gallery Strip
+// ========================================
+.instaSection {
+  @include section-padding;
+  background: $color-bg-secondary;
+  overflow: hidden;
+}
+
+.instaHeader {
+  @include container;
+  margin-bottom: $spacing-xl;
+}
+
+.instaStrip {
+  display: flex;
+  gap: $spacing-xs;
+  overflow-x: auto;
+  padding: 0 $spacing-md;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.instaItem {
+  flex-shrink: 0;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  scroll-snap-align: start;
+  cursor: pointer;
+
+  @include responsive($bp-md) {
+    width: 300px;
+    height: 300px;
+  }
+
+  img {
+    object-fit: cover;
+    transition: transform $transition-slow;
+  }
+
+  &:hover img {
+    transform: scale(1.08);
+  }
+}
+
+.instaOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba($color-accent-primary, 0.3);
+  @include flex-center;
+  opacity: 0;
+  transition: opacity $transition-base;
+  z-index: 2;
+
+  .instaItem:hover & {
+    opacity: 1;
+  }
+
+  svg {
+    font-size: $fs-2xl;
+    color: white;
+  }
+}
+
+// ========================================
+// Blog Preview Section (Home)
+// ========================================
+.blogPreview {
+  @include section-padding;
+  background: $color-bg-secondary;
+}
+
+.blogPreviewInner {
+  @include container;
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include responsive($bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive($bp-xl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.viewAllBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-2xl;
+}

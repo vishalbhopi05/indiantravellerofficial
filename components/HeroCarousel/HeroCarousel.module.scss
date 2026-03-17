@@ -1,0 +1,121 @@
+@use '../../styles/variables' as *;
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+}
+
+.slideImage {
+  position: absolute;
+  inset: 0;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.slideOverlay {
+  @include image-overlay;
+  z-index: 2;
+}
+
+.slideContent {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 $spacing-lg;
+}
+
+.slideTitle {
+  font-family: $font-heading;
+  font-size: $fs-hero;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: $spacing-md;
+  max-width: 900px;
+
+  background: linear-gradient(
+    180deg,
+    $color-text-primary 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.slideSubtitle {
+  font-family: $font-accent;
+  font-size: clamp($fs-md, 2.5vw, $fs-xl);
+  color: $color-text-secondary;
+  margin-bottom: $spacing-xl;
+  font-style: italic;
+  max-width: 600px;
+}
+
+.slideCta {
+  padding: 16px 40px;
+  font-size: $fs-base;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, $color-accent-primary, $color-accent-secondary);
+  color: $color-bg-primary;
+  border-radius: $border-radius-md;
+  transition: all $transition-base;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-glow;
+  }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+  color: $color-text-secondary;
+  font-size: $fs-xs;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 40px;
+  background: $color-accent-primary;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.5);
+    opacity: 0.3;
+  }
+}

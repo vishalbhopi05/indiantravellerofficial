@@ -1,0 +1,103 @@
+@use '../../styles/variables' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: $z-modal;
+  @include flex-center;
+  padding: $spacing-lg;
+}
+
+.content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  @include flex-center;
+}
+
+.imageWrapper {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+
+  img {
+    object-fit: contain;
+    border-radius: $border-radius-md;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: $z-modal + 1;
+  width: 48px;
+  height: 48px;
+  @include flex-center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: $border-radius-full;
+  color: $color-text-primary;
+  font-size: $fs-xl;
+  cursor: pointer;
+  transition: all $transition-base;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+  }
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  @include flex-center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: $border-radius-full;
+  color: $color-text-primary;
+  font-size: $fs-xl;
+  cursor: pointer;
+  transition: all $transition-base;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: $z-modal + 1;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: $color-accent-primary;
+    color: $color-accent-primary;
+  }
+}
+
+.prevBtn {
+  left: 20px;
+
+  @media (max-width: $bp-md) {
+    left: 10px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.nextBtn {
+  right: 20px;
+
+  @media (max-width: $bp-md) {
+    right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: $fs-sm;
+  color: $color-text-secondary;
+  letter-spacing: 2px;
+}

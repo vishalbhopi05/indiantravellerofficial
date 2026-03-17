@@ -1,0 +1,109 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  background: $color-bg-secondary;
+  border-top: 1px solid $color-border;
+  padding: $spacing-3xl 0 $spacing-lg;
+}
+
+.footerInner {
+  @include container;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-2xl;
+
+  @include responsive($bp-md) {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.brand {
+  h3 {
+    font-family: $font-heading;
+    font-size: $fs-xl;
+    margin-bottom: $spacing-sm;
+
+    span {
+      @include gradient-text;
+    }
+  }
+
+  p {
+    color: $color-text-secondary;
+    font-size: $fs-sm;
+    line-height: 1.7;
+    max-width: 360px;
+  }
+}
+
+.column {
+  h4 {
+    font-family: $font-body;
+    font-size: $fs-sm;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $color-accent-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  li a {
+    font-size: $fs-sm;
+    color: $color-text-secondary;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-accent-primary;
+    }
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-sm;
+
+  a {
+    @include flex-center;
+    width: 44px;
+    height: 44px;
+    border-radius: $border-radius-full;
+    border: 1px solid $color-border;
+    font-size: $fs-lg;
+    color: $color-text-secondary;
+    transition: all $transition-base;
+
+    &:hover {
+      border-color: $color-accent-primary;
+      color: $color-accent-primary;
+      background: rgba($color-accent-primary, 0.1);
+      transform: translateY(-3px);
+    }
+  }
+}
+
+.footerBottom {
+  padding-top: $spacing-lg;
+  border-top: 1px solid $color-border;
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+
+  p {
+    font-size: $fs-xs;
+    color: $color-text-muted;
+  }
+
+  span {
+    color: $color-accent-primary;
+  }
+}

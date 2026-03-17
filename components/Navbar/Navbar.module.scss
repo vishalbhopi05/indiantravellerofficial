@@ -1,0 +1,159 @@
+@use '../../styles/variables' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  padding: $spacing-md $spacing-lg;
+  transition: all $transition-smooth;
+
+  &.scrolled {
+    @include glass-effect;
+    padding: $spacing-sm $spacing-lg;
+    box-shadow: $shadow-md;
+  }
+}
+
+.navInner {
+  @include flex-between;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: $font-heading;
+  font-size: $fs-xl;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: color $transition-base;
+
+  span {
+    @include gradient-text;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.navLinks {
+  display: none;
+  align-items: center;
+  gap: $spacing-xl;
+
+  @include responsive($bp-lg) {
+    display: flex;
+  }
+}
+
+.navLink {
+  font-size: $fs-sm;
+  font-weight: 500;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color $transition-base;
+  @include hover-line;
+
+  &:hover,
+  &.active {
+    color: $color-accent-primary;
+  }
+
+  &.active::after {
+    width: 100%;
+  }
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  cursor: pointer;
+  z-index: $z-overlay + 1;
+
+  @include responsive($bp-lg) {
+    display: none;
+  }
+
+  span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: $color-text-primary;
+    transition: all $transition-base;
+    transform-origin: center;
+  }
+
+  &.open {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+  }
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  background: $color-bg-secondary;
+  z-index: $z-overlay;
+  padding: 120px $spacing-xl $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  border-left: 1px solid $color-border;
+}
+
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: $z-overlay - 1;
+}
+
+.mobileLink {
+  font-family: $font-heading;
+  font-size: $fs-2xl;
+  font-weight: 500;
+  color: $color-text-secondary;
+  transition: color $transition-base;
+  display: block;
+
+  &:hover,
+  &.active {
+    color: $color-accent-primary;
+  }
+}
+
+.mobileSocial {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: auto;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $color-border;
+
+  a {
+    font-size: $fs-xl;
+    color: $color-text-muted;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-accent-primary;
+    }
+  }
+}

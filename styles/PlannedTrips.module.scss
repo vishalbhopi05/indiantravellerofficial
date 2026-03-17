@@ -1,0 +1,69 @@
+@use './variables' as *;
+
+.page {
+  padding-top: $nav-height;
+}
+
+.hero {
+  padding: $spacing-3xl 0 $spacing-2xl;
+  background: $color-bg-secondary;
+  text-align: center;
+}
+
+.heroInner {
+  @include container;
+}
+
+.heroTitle {
+  font-size: $fs-section-title;
+  margin-bottom: $spacing-sm;
+
+  span {
+    @include gradient-text;
+  }
+}
+
+.heroSubtitle {
+  font-size: $fs-md;
+  color: $color-text-secondary;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.content {
+  @include section-padding;
+  background: $color-bg-primary;
+}
+
+.inner {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include responsive($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive($bp-xl) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.emptyState {
+  text-align: center;
+  padding: $spacing-3xl 0;
+  color: $color-text-muted;
+
+  h3 {
+    font-size: $fs-xl;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    font-size: $fs-md;
+  }
+}

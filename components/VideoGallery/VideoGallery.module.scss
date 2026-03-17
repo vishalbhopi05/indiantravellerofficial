@@ -1,0 +1,146 @@
+@use '../../styles/variables' as *;
+
+.section {
+  @include section-padding;
+  background: $color-bg-secondary;
+}
+
+.inner {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include responsive($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive($bp-xl) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  cursor: pointer;
+  @include card-hover;
+}
+
+.thumbnail {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    transition: transform $transition-slow;
+  }
+
+  .card:hover & img {
+    transform: scale(1.05);
+  }
+}
+
+.playBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  @include flex-center;
+  background: rgba($color-accent-primary, 0.9);
+  border-radius: $border-radius-full;
+  color: $color-bg-primary;
+  font-size: $fs-xl;
+  transition: all $transition-base;
+  z-index: 2;
+
+  .card:hover & {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: $shadow-glow;
+  }
+}
+
+.duration {
+  position: absolute;
+  bottom: $spacing-sm;
+  right: $spacing-sm;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 4px 10px;
+  border-radius: $border-radius-sm;
+  font-size: $fs-xs;
+  color: $color-text-primary;
+  z-index: 2;
+}
+
+.info {
+  padding: $spacing-md;
+}
+
+.videoTitle {
+  font-family: $font-heading;
+  font-size: $fs-lg;
+  margin-bottom: $spacing-xs;
+  line-height: 1.3;
+}
+
+.videoLocation {
+  font-size: $fs-sm;
+  color: $color-accent-primary;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+// Video Modal
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+  @include flex-center;
+  background: rgba(0, 0, 0, 0.95);
+  padding: $spacing-lg;
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+.modalClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  @include flex-center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: $border-radius-full;
+  color: $color-text-primary;
+  font-size: $fs-xl;
+  cursor: pointer;
+  transition: all $transition-base;
+  z-index: $z-modal + 1;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+  }
+}

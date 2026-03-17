@@ -1,0 +1,217 @@
+@use './variables' as *;
+
+.page {
+  padding-top: $nav-height;
+}
+
+.hero {
+  padding: $spacing-3xl 0 $spacing-2xl;
+  background: $color-bg-secondary;
+  text-align: center;
+}
+
+.heroInner {
+  @include container;
+}
+
+.heroTitle {
+  font-size: $fs-section-title;
+  margin-bottom: $spacing-sm;
+
+  span {
+    @include gradient-text;
+  }
+}
+
+.heroSubtitle {
+  font-size: $fs-md;
+  color: $color-text-secondary;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.content {
+  @include section-padding;
+  background: $color-bg-primary;
+}
+
+.inner {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-2xl;
+
+  @include responsive($bp-lg) {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+// Form
+.formSection {
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+}
+
+.formTitle {
+  font-family: $font-heading;
+  font-size: $fs-xl;
+  margin-bottom: $spacing-lg;
+
+  span {
+    @include gradient-text;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-size: $fs-sm;
+  color: $color-text-secondary;
+  font-weight: 500;
+}
+
+.input {
+  padding: 14px 18px;
+  background: $color-bg-tertiary;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  font-size: $fs-base;
+  color: $color-text-primary;
+  transition: border-color $transition-base;
+
+  &:focus {
+    border-color: $color-accent-primary;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+}
+
+.textarea {
+  @extend .input;
+  min-height: 150px;
+  resize: vertical;
+  font-family: $font-body;
+}
+
+.submitBtn {
+  padding: 16px 32px;
+  font-size: $fs-base;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, $color-accent-primary, $color-accent-secondary);
+  color: $color-bg-primary;
+  border-radius: $border-radius-md;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.successMessage {
+  padding: $spacing-md;
+  background: rgba(#2ecc71, 0.1);
+  border: 1px solid rgba(#2ecc71, 0.3);
+  border-radius: $border-radius-md;
+  color: #2ecc71;
+  text-align: center;
+  font-size: $fs-sm;
+}
+
+// Info Section
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.infoCard {
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  transition: border-color $transition-base;
+
+  &:hover {
+    border-color: $color-accent-primary;
+  }
+}
+
+.infoIcon {
+  width: 52px;
+  height: 52px;
+  @include flex-center;
+  background: rgba($color-accent-primary, 0.1);
+  border-radius: $border-radius-md;
+  color: $color-accent-primary;
+  font-size: $fs-xl;
+  margin-bottom: $spacing-sm;
+}
+
+.infoTitle {
+  font-family: $font-heading;
+  font-size: $fs-lg;
+  margin-bottom: $spacing-xs;
+}
+
+.infoText {
+  font-size: $fs-sm;
+  color: $color-text-secondary;
+  line-height: 1.6;
+}
+
+.infoLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: $fs-sm;
+  color: $color-accent-primary;
+  margin-top: $spacing-sm;
+  transition: gap $transition-base;
+
+  &:hover {
+    gap: 12px;
+  }
+}
+
+.mapPlaceholder {
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  padding: $spacing-2xl;
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-sm;
+  min-height: 200px;
+  color: $color-text-muted;
+  font-size: $fs-sm;
+
+  svg {
+    font-size: $fs-2xl;
+    color: $color-accent-primary;
+  }
+}
