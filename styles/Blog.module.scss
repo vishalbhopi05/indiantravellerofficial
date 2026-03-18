@@ -30,6 +30,106 @@
   margin: 0 auto;
 }
 
+// Search Bar
+.searchWrap {
+  position: relative;
+  max-width: 540px;
+  margin: $spacing-xl auto 0;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $color-text-muted;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 14px 48px 14px 50px;
+  font-size: $fs-base;
+  font-family: $font-body;
+  color: $color-text-primary;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-pill;
+  outline: none;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    border-color: $color-accent-primary;
+    box-shadow: 0 0 0 3px $color-accent-glow;
+  }
+}
+
+.searchClear {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: $border-radius-full;
+  background: $color-bg-tertiary;
+  color: $color-text-secondary;
+  cursor: pointer;
+  transition: background $transition-fast, color $transition-fast;
+
+  &:hover {
+    background: $color-accent-primary;
+    color: $color-white;
+  }
+}
+
+// Results count
+.resultsCount {
+  font-size: $fs-sm;
+  color: $color-text-muted;
+  margin-bottom: $spacing-lg;
+
+  strong {
+    color: $color-accent-primary;
+  }
+}
+
+// Empty state
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: $spacing-3xl 0;
+  color: $color-text-muted;
+
+  svg {
+    margin-bottom: $spacing-md;
+    opacity: 0.4;
+  }
+
+  h3 {
+    font-family: $font-heading;
+    font-size: $fs-xl;
+    color: $color-text-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  p {
+    font-size: $fs-sm;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-lg;
+  }
+}
+
 .content {
   @include section-padding;
   background: $color-bg-primary;
