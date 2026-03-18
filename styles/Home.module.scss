@@ -1,7 +1,7 @@
 @use './variables' as *;
 
 // ========================================
-// About Section
+// About / Meet the Travellers Section
 // ========================================
 .about {
   @include section-padding;
@@ -10,63 +10,179 @@
 
 .aboutInner {
   @include container;
+}
+
+// Two-column traveller card grid
+.travellersGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-2xl;
-  align-items: center;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
 
-  @include responsive($bp-lg) {
-    grid-template-columns: 1fr 1.2fr;
+  @include responsive($bp-md) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.aboutImageWrap {
+// Individual traveller card — full-image overlay style
+.travellerCard {
   position: relative;
-  border-radius: $border-radius-lg;
+  aspect-ratio: 3 / 4;
+  border-radius: $border-radius-xl;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
-  max-width: 450px;
-  margin: 0 auto;
+  cursor: default;
 
-  @include responsive($bp-lg) {
-    margin: 0;
+  &:hover .travellerBg {
+    transform: scale(1.06);
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border: 2px solid $color-accent-primary;
-    border-radius: $border-radius-lg;
-    transform: translate(12px, 12px);
-    z-index: -1;
-    opacity: 0.4;
+  &:hover .travellerOverlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
   }
 
-  img {
-    object-fit: cover;
-    border-radius: $border-radius-lg;
-  }
-}
-
-.aboutContent {
-  h2 {
-    font-size: $fs-section-title;
-    margin-bottom: $spacing-md;
-
-    span {
-      @include gradient-text;
-    }
+  &:hover .travellerBottom {
+    transform: translateY(0);
+    opacity: 1;
   }
 
-  p {
-    color: $color-text-secondary;
-    line-height: 1.8;
-    font-size: $fs-md;
-    margin-bottom: $spacing-lg;
+  &:hover .travellerBio {
+    max-height: 100px;
+    opacity: 1;
+    margin-bottom: $spacing-sm;
   }
 }
 
+// Background image
+.travellerBg {
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+  z-index: 0;
+}
+
+// Gradient overlay
+.travellerOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  transition: background 0.5s ease;
+}
+
+// Content layer
+.travellerContent {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $spacing-lg;
+}
+
+// Top section (tags)
+.travellerTop {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.travellerTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: $fs-xs;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: $border-radius-pill;
+  letter-spacing: 0.5px;
+}
+
+// Bottom section (info)
+.travellerBottom {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.travellerRole {
+  display: inline-block;
+  font-size: $fs-xs;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: $color-accent-primary;
+  margin-bottom: 6px;
+}
+
+.travellerName {
+  font-family: $font-heading;
+  font-size: $fs-2xl;
+  color: #ffffff;
+  margin-bottom: $spacing-xs;
+  line-height: 1.15;
+}
+
+.travellerBio {
+  font-size: $fs-sm;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  margin-bottom: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease;
+
+  // Thin custom scrollbar
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.travellerSocial {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: $fs-sm;
+  font-weight: 600;
+  color: $color-accent-primary;
+  transition: gap $transition-base, color $transition-base;
+  margin-top: $spacing-sm;
+
+  &:hover {
+    color: $color-accent-light;
+    gap: 10px;
+  }
+}
+
+// Shared stats row
 .aboutStats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

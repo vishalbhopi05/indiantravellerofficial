@@ -57,15 +57,33 @@ export const heroSlides = [
 ];
 
 export const aboutData = {
-  image:
-    'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&q=80',
-  name: 'IndianTravellerOfficial',
-  bio: "Hey there! I'm the wanderer behind IndianTravellerOfficial — a passionate traveler and photographer on a mission to explore every hidden gem this world has to offer. From misty mountain peaks to sun-drenched beaches, bustling city streets to silent forest trails — I capture the soul of every destination through my lens.",
+  headline: 'Meet the Travellers',
+  subheadline: 'Two wanderers, one shared dream — to explore every corner of this beautiful world and bring you along for the ride.',
   stats: [
     { number: '50+', label: 'Destinations' },
     { number: '1000+', label: 'Photos' },
     { number: '200+', label: 'Travel Stories' },
     { number: '100K+', label: 'Community' },
+  ],
+  travellers: [
+    {
+      id: 1,
+      name: 'Vishal Bhopi',
+      role: 'Co-Founder & Photographer',
+      bio: 'A lens-obsessed adventurer who chases golden hours across mountain peaks and ancient cities. Vishal brings every destination to life through cinematic travel photography.',
+      image: 'https://res.cloudinary.com/djmsy5yrb/image/upload/v1773750210/IMG_9617_qu2mq8.jpg',
+      instagram: 'https://www.instagram.com/vishal.bhopi45?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+      specialties: ['Photography', 'Mountains', 'Road Trips'],
+    },
+    {
+      id: 2,
+      name: 'Atul Gaikwad',
+      role: 'Co-Founder & Storyteller',
+      image: 'https://res.cloudinary.com/djmsy5yrb/image/upload/v1773750702/550A29EF-E4B1-4FA8-8054-07A15D4D87B4_L0_001-7_10_2025_10_46_48_PM_trjab2.jpg',
+      bio: 'A wordsmith at heart who turns every journey into an immersive story. Rohan curates itineraries, uncovers hidden gems, and captures the soul of local cultures.',
+      instagram: 'https://www.instagram.com/mrr_atul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+      specialties: ['Writing', 'Culture', 'Food Trails'],
+    },
   ],
 };
 
@@ -1279,10 +1297,12 @@ export const blogPosts = [
     `,
     gallery: [
       'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&q=80',
-      'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80',
-      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80',
-      'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80',
-      "https://res.cloudinary.com/djmsy5yrb/image/upload/v1773733664/jaipur-palace_roh7dz.jpg"
+      "https://res.cloudinary.com/djmsy5yrb/image/upload/v1773733664/jaipur-palace_roh7dz.jpg",
+      "https://res.cloudinary.com/djmsy5yrb/image/upload/v1773819611/IMG_6986_hbmz5k.jpg",
+      "https://res.cloudinary.com/djmsy5yrb/image/upload/v1773819611/IMG_6674_cb0ykl.jpg",
+      "https://res.cloudinary.com/djmsy5yrb/image/upload/v1773819609/IMG_1874_ftnegu.jpg",
+      "https://res.cloudinary.com/djmsy5yrb/image/upload/v1773819611/IMG_6966_yhjpd5.jpg"
+
     ],
   },
   {

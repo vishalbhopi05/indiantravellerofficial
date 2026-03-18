@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FiMapPin, FiInstagram, FiArrowRight, FiGlobe, FiFlag } from 'react-icons/fi';
+import { FiMapPin, FiInstagram, FiArrowRight, FiGlobe, FiFlag, FiCamera, FiEdit3 } from 'react-icons/fi';
 import SEO from '@/components/SEO/SEO';
 import HeroCarousel from '@/components/HeroCarousel/HeroCarousel';
 import AnimatedSection from '@/components/AnimatedSection/AnimatedSection';
@@ -35,42 +35,81 @@ export default function Home() {
       {/* 1. Hero Carousel */}
       <HeroCarousel />
 
-      {/* 2. About Section */}
+      {/* 2. About / Meet the Travellers Section */}
       <section className={styles.about}>
         <div className={styles.aboutInner}>
-          <AnimatedSection animation="fadeRight">
-            <div className={styles.aboutImageWrap}>
-              <Image
-                src={aboutData.image}
-                alt={aboutData.name}
-                fill
-                sizes="(max-width: 1024px) 90vw, 450px"
-                quality={85}
-              />
-            </div>
+          <AnimatedSection animation="fadeUp">
+            <h2 className="section__title">
+              Meet <span>The Travellers</span>
+            </h2>
+            <p className="section__subtitle">{aboutData.subheadline}</p>
           </AnimatedSection>
-          <AnimatedSection animation="fadeLeft" delay={0.2}>
-            <div className={styles.aboutContent}>
-              <h2>
-                About <span>The Traveller</span>
-              </h2>
-              <p>{aboutData.bio}</p>
-              <div className={styles.aboutStats}>
-                {aboutData.stats.map((stat, i) => (
-                  <AnimatedSection
-                    key={stat.label}
-                    animation="scaleUp"
-                    delay={0.3 + i * 0.1}
-                  >
-                    <div className={styles.statItem}>
-                      <h3>{stat.number}</h3>
-                      <p>{stat.label}</p>
+
+          {/* Traveller Cards */}
+          <div className={styles.travellersGrid}>
+            {aboutData.travellers.map((traveller, i) => (
+              <AnimatedSection
+                key={traveller.id}
+                animation={i === 0 ? 'fadeRight' : 'fadeLeft'}
+                delay={0.15 * i}
+              >
+                <div className={styles.travellerCard}>
+                  {/* Full-bleed background image */}
+                  <Image
+                    src={traveller.image}
+                    alt={traveller.name}
+                    fill
+                    sizes="(max-width: 768px) 90vw, 50vw"
+                    quality={85}
+                    className={styles.travellerBg}
+                  />
+                  {/* Gradient overlay */}
+                  <div className={styles.travellerOverlay} />
+                  {/* Content on top */}
+                  <div className={styles.travellerContent}>
+                    <div className={styles.travellerTop}>
+                      <div className={styles.travellerTags}>
+                        {traveller.specialties.map((tag) => (
+                          <span key={tag} className={styles.tag}>{tag}</span>
+                        ))}
+                      </div>
                     </div>
-                  </AnimatedSection>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
+                    <div className={styles.travellerBottom}>
+                      <span className={styles.travellerRole}>{traveller.role}</span>
+                      <h3 className={styles.travellerName}>{traveller.name}</h3>
+                      <p className={styles.travellerBio}>{traveller.bio}</p>
+                      <a
+                        href={traveller.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.travellerSocial}
+                      >
+                        <FiInstagram size={15} />
+                        Follow on Instagram
+                        <FiArrowRight size={13} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {/* Shared Stats */}
+          <div className={styles.aboutStats}>
+            {aboutData.stats.map((stat, i) => (
+              <AnimatedSection
+                key={stat.label}
+                animation="scaleUp"
+                delay={0.3 + i * 0.1}
+              >
+                <div className={styles.statItem}>
+                  <h3>{stat.number}</h3>
+                  <p>{stat.label}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 

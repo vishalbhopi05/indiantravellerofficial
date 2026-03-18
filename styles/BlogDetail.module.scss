@@ -140,44 +140,100 @@
   }
 }
 
-// Gallery
+// ========================================
+// Gallery Section — Modern Masonry Style
+// ========================================
+
 .gallerySection {
-  margin-top: $spacing-2xl;
+  margin-top: $spacing-3xl;
+  padding-top: $spacing-2xl;
+  border-top: 1px solid $color-border-light;
 }
 
-.galleryTitle {
+// Decorative section header
+.gallerySectionHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-sm;
+}
+
+.galleryLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    $color-accent-primary,
+    transparent
+  );
+}
+
+.galleryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
   font-family: $font-heading;
-  font-size: $fs-xl;
-  margin-bottom: $spacing-md;
-  color: $color-text-primary;
+  font-size: $fs-lg;
+  font-weight: 600;
+  color: $color-accent-primary;
+  border: 1px solid $color-accent-glow;
+  border-radius: $border-radius-pill;
+  background: $color-bg-secondary;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
 }
 
+.galleryCount {
+  text-align: center;
+  font-size: $fs-sm;
+  color: $color-text-muted;
+  margin-bottom: $spacing-xl;
+}
+
+// Masonry-inspired grid
 .galleryGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-sm;
+  gap: $spacing-md;
 
   @include responsive($bp-sm) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+// Individual gallery card
 .galleryItem {
   position: relative;
-  aspect-ratio: 16 / 10;
-  border-radius: $border-radius-md;
+  border-radius: $border-radius-lg;
   overflow: hidden;
   cursor: pointer;
+  background: $color-bg-card;
+  box-shadow: $shadow-sm;
+  transition: box-shadow $transition-base, transform $transition-base;
 
   img {
-    object-fit: cover;
-    transition: transform $transition-slow;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
-  &:hover img {
-    transform: scale(1.05);
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
   }
 }
+
+// Hero (first) image spans full width
+.galleryHero {
+  @include responsive($bp-sm) {
+    grid-column: 1 / -1;
+  }
+}
+
 
 .backLink {
   display: inline-flex;

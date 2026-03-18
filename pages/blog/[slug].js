@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FiMapPin, FiCalendar, FiClock, FiArrowLeft } from 'react-icons/fi';
+import { FiMapPin, FiCalendar, FiClock, FiArrowLeft, FiCamera } from 'react-icons/fi';
 import SEO from '@/components/SEO/SEO';
 import AnimatedSection from '@/components/AnimatedSection/AnimatedSection';
 import Lightbox from '@/components/Lightbox/Lightbox';
@@ -114,28 +114,52 @@ export default function BlogDetail({ post }) {
 
           {/* Gallery */}
           {post.gallery && post.gallery.length > 0 && (
-            <AnimatedSection animation="fadeUp" delay={0.2}>
-              <div className={styles.gallerySection}>
-                <h3 className={styles.galleryTitle}>Photo Gallery</h3>
-                <div className={styles.galleryGrid}>
-                  {post.gallery.map((img, i) => (
+            <div className={styles.gallerySection}>
+              {/* Section header with decorative line */}
+              <AnimatedSection animation="fadeUp" delay={0.2}>
+                <div className={styles.gallerySectionHeader}>
+                  <span className={styles.galleryLine} />
+                  <span className={styles.galleryBadge}>
+                    <FiCamera size={14} />
+                    Photo Gallery
+                  </span>
+                  <span className={styles.galleryLine} />
+                </div>
+                <p className={styles.galleryCount}>
+                  {post.gallery.length} photos from this journey
+                </p>
+              </AnimatedSection>
+
+              {/* Masonry-inspired grid */}
+              <div className={styles.galleryGrid}>
+                {post.gallery.map((img, i) => (
+                  <AnimatedSection
+                    key={i}
+                    animation="fadeUp"
+                    delay={0.1 + i * 0.08}
+                  >
                     <div
-                      key={i}
-                      className={styles.galleryItem}
+                      className={`${styles.galleryItem} ${i === 0 ? styles.galleryHero : ''}`}
                       onClick={() => setLightboxIndex(i)}
                     >
                       <Image
                         src={img}
                         alt={`${post.title} gallery ${i + 1}`}
-                        fill
-                        sizes="(max-width: 640px) 100vw, 50vw"
-                        quality={80}
+                        width={i === 0 ? 1200 : 800}
+                        height={i === 0 ? 700 : 600}
+                        sizes={
+                          i === 0
+                            ? '(max-width: 640px) 100vw, 100vw'
+                            : '(max-width: 640px) 100vw, 50vw'
+                        }
+                        quality={85}
+                        style={{ width: '100%', height: 'auto' }}
                       />
                     </div>
-                  ))}
-                </div>
+                  </AnimatedSection>
+                ))}
               </div>
-            </AnimatedSection>
+            </div>
           )}
         </article>
       </div>
